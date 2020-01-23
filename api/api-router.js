@@ -7,7 +7,7 @@ const router = express.Router();
 router.use(express.json());
 
 router.get('/', (req, res) => {
-  const messageOfTheDay = process.env.MOTD;
+  const messageOfTheDay = process.env.MOTD; //a
   res.status(200).json({ motd: messageOfTheDay });
 });
 
@@ -37,3 +37,6 @@ function errorHandler(error, req, res, next) {
 }
 
 module.exports = router;
+
+
+//a - Here we're setting this JSON message to a variable we've hard coded in our .env file. When we push this code to the github repo, it's not going to be sent to the heroku application. BUT since the code is saying to use the enviro var of MOTD, we havve to add a new MTOD environmental variable to Heroku in our app settings. There we can set up out key value paris. This is private info so here is where we would put sensitive info like api keys and auth keys.
